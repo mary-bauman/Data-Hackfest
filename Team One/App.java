@@ -23,7 +23,7 @@ public class App extends JFrame {
 
 
         // Initialize Swing components
-        //myTextField = new JTextField(20);
+        myTextField = new JTextField(20);
 
         myLabel = new JLabel("You are a " + color + " duckling named " + name + ".");
         myButton = new JButton("Click Me");
