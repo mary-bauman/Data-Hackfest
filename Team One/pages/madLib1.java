@@ -8,20 +8,20 @@ import java.awt.*;
 public class madLib1 extends JFrame {
         // Declare Swing components
         public JButton myButton;
-        public JLabel myLabel;
-        public JTextField myTextField;
+        public static JLabel myLabel;
+        private JTextField myTextField;
     
         //all our little mad lib vars
-        String color = "Pink";
-        String name = "Duck";
-        String food = "Bread";
+        public static String color = "Pink";
+        public static String name = "Duck";
+        public static String food = "Bread";
 
     public madLib1(){
         // Set the title for the JFrame
         super("Main");
 
         // Initialize Swing components
-        myLabel = new JLabel("Hello, World!");
+        myLabel = new JLabel("Enter a color:");
         myTextField = new JTextField(20);
         ButtonA a = new ButtonA();
         //ButtonB b = new ButtonB();
