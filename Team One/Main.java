@@ -1,33 +1,25 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class App extends JFrame {
+public class Main extends JFrame {
     // Declare Swing components
     public JButton myButton;
     public JLabel myLabel;
     public JTextField myTextField;
 
-    //all our little mad lib vars
-    String color = "Pink";
-    String name = "duck";
-    String food = "Bread";
-
     public static void main(String[] args) {
-        // Create an instance of App
-        SwingUtilities.invokeLater(() -> new App());
+        // Create an instance of Main
+        SwingUtilities.invokeLater(() -> new Main());
     }
 
-    public App() {
+    public Main() {
         // Set the title for the JFrame
-        super("My Java Swing Application");
-
+        super("Main");
 
         // Initialize Swing components
-        //myTextField = new JTextField(20);
-
-        myLabel = new JLabel("You are a " + color + " duckling named " + name + ".");
         myButton = new JButton("Click Me");
-
+        myLabel = new JLabel("Hello, World!");
+        myTextField = new JTextField(20);
 
         // Set the layout manager for the JFrame (e.g., BorderLayout)
         setLayout(new BorderLayout());
