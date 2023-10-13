@@ -16,7 +16,8 @@ public class ButtonA {
         myButton = new JButton("Start");
         myButton.addActionListener(e -> {
             String[] prompts = {"color", "name", "food"};
-            MadLib.generateMadLib("Team One/pages/madLib1.txt", prompts, false);
+            String p = "pages/MadLib1.txt";
+            MadLib.generateMadLib(p, prompts, false);
             if (!myButton.getText().equals("Decisions"))
                 myButton.setText("Decisions");
         });
