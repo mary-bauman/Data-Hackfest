@@ -13,10 +13,12 @@ public class ButtonA {
     private int count = 0;
 
     public JButton generateButtonA(JTextField tf, JLabel label){
-        myButton = new JButton("Decisions");
+        myButton = new JButton("Start");
         myButton.addActionListener(e -> {
             String[] prompts = {"color", "name", "food"};
             MadLib.generateMadLib("Team One/pages/madLib1.txt", prompts, false);
+            if (!myButton.getText().equals("Decisions"))
+                myButton.setText("Decisions");
         });
         
         return myButton;

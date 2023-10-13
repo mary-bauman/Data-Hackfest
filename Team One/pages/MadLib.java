@@ -20,6 +20,7 @@ public class MadLib extends JFrame {
         // Initialize Swing components
         myLabel = new JLabel();
         myTextField = new JTextField(20);
+        myTextField.setVisible(false);
         ButtonA a = new ButtonA();
         //ButtonB b = new ButtonB();
         JButton buttonA = a.generateButtonA(myTextField,myLabel);
@@ -45,6 +46,7 @@ public class MadLib extends JFrame {
         if (count == 0) {
             myLabel.setText("Enter a " + words[count] + ":");
             answers = new String[words.length];
+            myTextField.setVisible(true);
         }
         else if (count <= words.length) {
             answers[count-1] = myTextField.getText();
@@ -60,6 +62,7 @@ public class MadLib extends JFrame {
                     finalLib += (s.nextLine() + answers[i]);
                 finalLib += s.nextLine();
                 myLabel.setText(finalLib);
+                myTextField.setVisible(false);
                 s.close();
             } catch (FileNotFoundException e){ System.out.println("File not found"); };
             }
