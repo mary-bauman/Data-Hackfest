@@ -7,6 +7,9 @@ public class App extends JFrame {
     public JLabel myLabel;
     public JTextField myTextField;
 
+    // keeps track of button presses
+    int count = 1;
+
     //all our little mad lib vars
     String color = "Pink";
     String name = "duck";
@@ -25,8 +28,8 @@ public class App extends JFrame {
         // Initialize Swing components
         myTextField = new JTextField(20);
 
-        myLabel = new JLabel("You are a " + color + " duckling named " + name + ".");
-        myButton = new JButton("Click Me");
+        myLabel = new JLabel("Enter a color:");
+        myButton = new JButton("Enter");
 
 
         // Set the layout manager for the JFrame (e.g., BorderLayout)
@@ -43,8 +46,23 @@ public class App extends JFrame {
 
         // Add event listeners (e.g., for button clicks)
         myButton.addActionListener(e -> {
-            String text = myTextField.getText();
-            myLabel.setText("Hello, " + text + "!");
+            switch(count) {
+                case 1:
+                    color = myTextField.getText();
+                    myTextField.setText("");
+                    myLabel.setText("Enter a name:");
+                    break;
+                case 2:
+                    name = myTextField.getText();
+                    myTextField.setText("");
+                    myLabel.setText("Enter a food:");
+                    break;
+                default:
+                    food = myTextField.getText();
+                    myTextField.setText("");
+                    myLabel.setText("You are a " + color + " duckling named " + name + " who wants " + food +".");
+            }
+            count++;
         });
 
         // Make the JFrame visible
