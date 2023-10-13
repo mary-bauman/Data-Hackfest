@@ -3,7 +3,6 @@ package buttons;
 import javax.swing.*;
 
 import pages.MadLib;
-import pages.madLib1;
 
 
 public class ButtonA {

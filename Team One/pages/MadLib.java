@@ -7,7 +7,6 @@ import java.util.*;
 
 public class MadLib extends JFrame {
         // Declare Swing components
-        private JButton myButton;
         private static JLabel myLabel;
         private static JTextField myTextField;
     
