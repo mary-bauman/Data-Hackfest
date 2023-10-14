@@ -1,3 +1,3 @@
 Team Name: 
 
-Team Members: Mary Bauman, Xander, Daniel, Connor Gabe, Kyle Breadmann, Jessie Morrison
+Team Members: Mary Bauman, Xander, Daniel, Connor Gabe, Kylie Breaaaddmann, Jessie Morrison
