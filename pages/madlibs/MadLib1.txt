@@ -1,7 +1,7 @@
 You are a 
  duckling named 
-Your tummy is grumbling and you smell 
-Nearby, there is a local business called 
-You're all alone, and you need to find food quickly
+ and your tummy is grumbling and you smell 
+ nearby, there is a local business called 
+. You're all alone, and you need to find food quickly
 
 .
