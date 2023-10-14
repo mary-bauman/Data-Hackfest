@@ -49,12 +49,15 @@ public class MadLib extends JFrame {
             myLabel.setText("Enter a " + words[count] + ":");
             answers = new String[words.length];
             myTextField.setVisible(true);
+            count++;
         }
         else if (count <= words.length) {
             answers[count-1] = myTextField.getText();
             myTextField.setText("");
-            if (count < words.length)
+            if (count < words.length) {
                 myLabel.setText("Enter a " + words[count] + ":");
+                count++;
+            }
             else {
                 File f = new File(path);
                 try {
@@ -65,25 +68,24 @@ public class MadLib extends JFrame {
                     finalLib += s.nextLine();
                     myLabel.setText(finalLib);
                     myTextField.setVisible(false);
-                    
+                    count = 0;
 
                     
-                    JButton decisionTime = new JButton("Continue", null);
-                    Main.m.add(decisionTime, BorderLayout.SOUTH);
+                    // JButton decisionTime = new JButton("Continue", null);
+                    // Main.m.add(decisionTime, BorderLayout.SOUTH);
                     
-                    decisionTime.addActionListener(e ->{
-                            Main.m.setVisible(false);
-                            Decisions d = new Decisions();
-                            String[] prompts = {"color", "name", "food"};
-                            String p = "pages/decisions/Decisions1.txt";
-                            Decisions.generateDecision(p, prompts, false);
-                    });
+                    // decisionTime.addActionListener(e ->{
+                    //         Main.m.setVisible(false);
+                    //         Decisions d = new Decisions();
+                    //         String[] prompts = {"color", "name", "food"};
+                    //         String p = "pages/decisions/Decisions1.txt";
+                    //         Decisions.generateDecision(p, prompts, false);
+                    // });
 
 
                     s.close();
                 } catch (FileNotFoundException e){ System.out.println("File not found"); };
             }
         }
-        count++;
     }
 }
