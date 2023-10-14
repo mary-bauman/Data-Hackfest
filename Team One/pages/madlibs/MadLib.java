@@ -16,7 +16,7 @@ public class MadLib extends JFrame {
         public JButton decisionTime = new JButton("Continue", null);
         public Decisions d;
         public MadLibButton a;
-    
+        private String finalLib;
         private static int count = 0;
         private static String[] answers;
 
@@ -30,7 +30,7 @@ public class MadLib extends JFrame {
         myTextField.setVisible(false);
         a = new MadLibButton();
         buttonA = a.generateMadLibsButton(myTextField,myLabel);
-
+        finalLib = "";
         // Set the layout manager for the JFrame (e.g., BorderLayout)
         setLayout(new BorderLayout());
 
@@ -66,11 +66,13 @@ public class MadLib extends JFrame {
                 File f = new File(path);
                 try {
                     Scanner s = new Scanner(f);
-                    String finalLib = "";
+                    //String finalLib = ""; // uncomment for 1 mad lib at a time
+                    if (!finalLib.equals(""))
+                        finalLib += "\n\n";
                     for (int i = 0; i < answers.length; i++)
                         finalLib += (s.nextLine() + answers[i]);
                     finalLib += s.nextLine();
-                    myLabel.setText(finalLib);
+                    myLabel.setText("<html>" + finalLib.replaceAll("\n", "<br/>") + "</html>");
                     myTextField.setVisible(false);
                     count = 0;
                     if(choice) {
