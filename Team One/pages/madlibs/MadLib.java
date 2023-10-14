@@ -60,9 +60,6 @@ public class MadLib extends JFrame {
             else {
                 File f = new File(path);
                 try {
-                    Main.m.setVisible(false);
-                    MadLib madLibInstance = new MadLib(); // Create an instance of MadLib
-                    madLibInstance.init();
                     Scanner s = new Scanner(f);
                     String finalLib = "";
                     for (int i = 0; i < answers.length; i++)
@@ -74,10 +71,10 @@ public class MadLib extends JFrame {
 
                     
                     JButton decisionTime = new JButton("Continue", null);
-                    madLibInstance.add(decisionTime, BorderLayout.SOUTH);
+                    Main.m.add(decisionTime, BorderLayout.SOUTH);
                     
                     decisionTime.addActionListener(e ->{
-                            madLibInstance.setVisible(false);
+                            Main.m.setVisible(false);
                             Decisions d = new Decisions();
                             String[] prompts = {"color", "name", "food"};
                             String p = "pages/decisions/Decisions1.txt";
