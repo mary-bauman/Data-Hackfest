@@ -22,7 +22,7 @@ public class Decisions extends JFrame {
         myTextField = new JTextField(20);
         myTextField.setVisible(false);
         DecisionsButton b = new DecisionsButton();
-        JButton buttonB = b.generateButtonB(myTextField,myLabel);
+        JButton buttonB = b.generateDecisionsButton(myTextField,myLabel);
 
         // Set the layout manager for the JFrame (e.g., BorderLayout)
         setLayout(new BorderLayout());
@@ -46,7 +46,7 @@ public class Decisions extends JFrame {
         myLabel.setText("You have a decision to make...");
         
         DecisionsButton b = new DecisionsButton();
-        b.generateButtonB(myTextField, myLabel);
+        b.generateDecisionsButton(myTextField, myLabel);
     }
 
 }

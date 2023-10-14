@@ -13,7 +13,7 @@ public class MadLibButton {
 
     private int count = 0;
 
-    public JButton generateButtonA(JTextField tf, JLabel label){
+    public JButton generateMadLibsButton(JTextField tf, JLabel label){
         myButton = new JButton("Start");
         myButton.addActionListener(e -> {
             String[] prompts = {"color", "name", "food"};

@@ -7,7 +7,7 @@ public class DecisionsButton {
     public void ButtonB(){
         
     }
-        public JButton generateButtonB(JTextField myTextField, JLabel label){
+        public JButton generateDecisionsButton(JTextField myTextField, JLabel label){
             JButton myButton = new JButton("Enter");
             myButton.addActionListener(e->{
                 Decisions.generateDecisions("pages/decisions/Decisions1.txt", null, false);

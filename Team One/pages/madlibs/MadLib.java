@@ -25,7 +25,7 @@ public class MadLib extends JFrame {
         myTextField.setVisible(false);
         MadLibButton a = new MadLibButton();
         //ButtonB b = new ButtonB();
-        JButton buttonA = a.generateButtonA(myTextField,myLabel);
+        JButton buttonA = a.generateMadLibsButton(myTextField,myLabel);
         // Set the layout manager for the JFrame (e.g., BorderLayout)
         setLayout(new BorderLayout());
 
