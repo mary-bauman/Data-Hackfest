@@ -1,8 +1,9 @@
 package src;
 import javax.swing.*;
 
-import buttons.ButtonA;
-import pages.MadLib;
+import buttons.MadLibButton;
+import pages.madlibs.MadLib;
+
 import java.awt.*;
 
 public class Main extends JFrame {

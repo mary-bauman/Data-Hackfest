@@ -2,13 +2,13 @@ package buttons;
 
 import javax.swing.*;
 
-import pages.MadLib;
-import pages.Decisions;
+import pages.decisions.Decisions;
+import pages.madlibs.MadLib;
 
 
-public class ButtonA {
+public class MadLibButton {
     public JButton myButton;
-    public ButtonA() {
+    public MadLibButton() {
     }
 
     private int count = 0;
@@ -17,10 +17,10 @@ public class ButtonA {
         myButton = new JButton("Start");
         myButton.addActionListener(e -> {
             String[] prompts = {"color", "name", "food"};
-            String p = "pages/MadLib1.txt";
+            String p = "pages/madlibs/MadLib1.txt";
             MadLib.generateMadLib(p, prompts, false);
-            if (!myButton.getText().equals("Decisions"))
-                myButton.setText("Decisions");
+            if (!myButton.getText().equals("Enter"))
+                myButton.setText("Enter");
 
             JLabel myLabel = new JLabel();
             JTextField myTextField = new JTextField(20);

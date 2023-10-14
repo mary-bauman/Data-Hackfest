@@ -1,5 +1,7 @@
-package pages;
-import buttons.ButtonA;
+package pages.madlibs;
+import buttons.MadLibButton;
+import pages.decisions.Decisions;
+
 import javax.swing.*;
 import java.awt.*;
 import java.io.*;
@@ -21,7 +23,7 @@ public class MadLib extends JFrame {
         myLabel = new JLabel();
         myTextField = new JTextField(20);
         myTextField.setVisible(false);
-        ButtonA a = new ButtonA();
+        MadLibButton a = new MadLibButton();
         //ButtonB b = new ButtonB();
         JButton buttonA = a.generateButtonA(myTextField,myLabel);
         // Set the layout manager for the JFrame (e.g., BorderLayout)
@@ -72,7 +74,7 @@ public class MadLib extends JFrame {
                     decisionTime.addActionListener(e ->{
                             Decisions d = new Decisions();
                             String[] prompts = {"color", "name", "food"};
-                            String p = "pages/Decisions1.txt";
+                            String p = "pages/decisions/Decisions1.txt";
                             Decisions.generateDecisions(p, prompts, false);
                     });
 

@@ -1,5 +1,5 @@
-package pages;
-import buttons.ButtonB;
+package pages.decisions;
+import buttons.DecisionsButton;
 import javax.swing.*;
 import java.awt.*;
 import java.io.*;
@@ -21,7 +21,7 @@ public class Decisions extends JFrame {
         myLabel = new JLabel();
         myTextField = new JTextField(20);
         myTextField.setVisible(false);
-        ButtonB b = new ButtonB();
+        DecisionsButton b = new DecisionsButton();
         JButton buttonB = b.generateButtonB(myTextField,myLabel);
 
         // Set the layout manager for the JFrame (e.g., BorderLayout)
@@ -44,7 +44,9 @@ public class Decisions extends JFrame {
     public static void generateDecisions(String path, String[] words, boolean choice) {
         //decisions stuff
         myLabel.setText("You have a decision to make...");
-        File f = new File(path);
+        
+        DecisionsButton b = new DecisionsButton();
+        b.generateButtonB(myTextField, myLabel);
     }
 
 }
