@@ -11,11 +11,11 @@ import java.util.*;
 
 public class Decisions extends JFrame {
         // Declare Swing components
-        private static JLabel myLabel;
+        public static JLabel myLabel;
         private static JTextField myTextField;
         private Box box;
-        private static JButton choice1;
-        private static JButton choice2;
+        public static JButton choice1;
+        public static JButton choice2;
         public static char choice;
 
     public Decisions(){
@@ -52,7 +52,7 @@ public class Decisions extends JFrame {
         setVisible(true);
     }
 
-    public static void generateDecision(String question, String[] choices) {
+    public void generateDecision(String question, String[] choices) {
         //decisions stuff
         myLabel.setText(question);
         choice1.setText(choices[0]);
@@ -69,7 +69,7 @@ public class Decisions extends JFrame {
         choice2.addActionListener(e->{
             choice = 'B';
             Main.m.d.setVisible(false);
-            Main.m.decisionTime.setVisible(false);
+            Main.m.decisionTime = null;
             Main.m.buttonA.setVisible(true);
             Main.m.a.pressButton();
             Main.m.setVisible(true);

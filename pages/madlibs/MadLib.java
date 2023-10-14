@@ -33,6 +33,8 @@ public class MadLib extends JFrame {
         buttonA = a.generateMadLibsButton(myTextField,myLabel);
         finalLib = "";
         decisionReady = false;
+        d = new Decisions();
+        d.setVisible(false);
         // Set the layout manager for the JFrame (e.g., BorderLayout)
         setLayout(new BorderLayout());
 
@@ -87,15 +89,14 @@ public class MadLib extends JFrame {
         generateMadLib(path, words);
         if (decisionReady) {
             buttonA.setVisible(false);
-                        decisionTime.setVisible(true);
-                        Main.m.add(decisionTime, BorderLayout.SOUTH);
-                        decisionTime.addActionListener(e ->{
-                            Main.m.setVisible(false);
-                            d = new Decisions();
-                            Decisions.generateDecision(question, choices);
-                            decisionReady = false;
-                        });
-
+            decisionTime.setVisible(true);
+            Main.m.add(decisionTime, BorderLayout.SOUTH);
+            decisionTime.addActionListener(e ->{
+                Main.m.setVisible(false);
+                d = new Decisions();
+                d.generateDecision(question, choices);
+                decisionReady = false;
+            });
         }
     }
 }
