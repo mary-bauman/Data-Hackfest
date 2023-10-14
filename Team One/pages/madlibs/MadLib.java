@@ -16,6 +16,7 @@ public class MadLib extends JFrame {
         private static int count = 0;
         private static String[] answers;
 
+
     public MadLib(){
         // Set the title for the JFrame
         super("Main");
