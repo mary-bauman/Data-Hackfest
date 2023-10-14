@@ -13,7 +13,7 @@ public class Decisions extends JFrame {
         // Declare Swing components
         private static JLabel myLabel;
         private static JTextField myTextField;
-        private JPanel panel;
+        private Box box;
         private static JButton choice1;
         private static JButton choice2;
         public static char choice;
@@ -27,11 +27,11 @@ public class Decisions extends JFrame {
         myTextField = new JTextField(20);
         myTextField.setVisible(false);
         choice = 'A';
-        panel = new JPanel();
+        box = Box.createVerticalBox();
         choice1 = new JButton();
         choice2 = new JButton();
-        panel.add(choice1);
-        panel.add(choice2);
+        box.add(choice1);
+        box.add(choice2);
 
         // Set the layout manager for the JFrame (e.g., BorderLayout)
         setLayout(new BorderLayout());
@@ -40,7 +40,7 @@ public class Decisions extends JFrame {
         //add(myButton, BorderLayout.NORTH);
         add(myLabel, BorderLayout.CENTER);
         add(myTextField, BorderLayout.SOUTH);
-        add(panel, BorderLayout.EAST);
+        add(box, BorderLayout.EAST);
 
         // Set default close operation and window size
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
