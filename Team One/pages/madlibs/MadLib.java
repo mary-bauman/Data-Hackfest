@@ -12,6 +12,10 @@ public class MadLib extends JFrame {
         // Declare Swing components
         private static JLabel myLabel;
         private static JTextField myTextField;
+        public JButton buttonA;
+        public JButton decisionTime = new JButton("Continue", null);
+        public Decisions d;
+        public MadLibButton a;
     
         private static int count = 0;
         private static String[] answers;
@@ -24,8 +28,8 @@ public class MadLib extends JFrame {
         myLabel = new JLabel();
         myTextField = new JTextField(20);
         myTextField.setVisible(false);
-        MadLibButton a = new MadLibButton();
-        JButton buttonA = a.generateMadLibsButton(myTextField,myLabel);
+        a = new MadLibButton();
+        buttonA = a.generateMadLibsButton(myTextField,myLabel);
 
         // Set the layout manager for the JFrame (e.g., BorderLayout)
         setLayout(new BorderLayout());
@@ -69,20 +73,18 @@ public class MadLib extends JFrame {
                     myLabel.setText(finalLib);
                     myTextField.setVisible(false);
                     count = 0;
-
-                    
-                    // JButton decisionTime = new JButton("Continue", null);
-                    // Main.m.add(decisionTime, BorderLayout.SOUTH);
-                    
-                    // decisionTime.addActionListener(e ->{
-                    //         Main.m.setVisible(false);
-                    //         Decisions d = new Decisions();
-                    //         String[] prompts = {"color", "name", "food"};
-                    //         String p = "pages/decisions/Decisions1.txt";
-                    //         Decisions.generateDecision(p, prompts, false);
-                    // });
-
-
+                    if(choice) {
+                        buttonA.setVisible(false);
+                        decisionTime.setVisible(true);
+                        Main.m.add(decisionTime, BorderLayout.SOUTH);
+                        decisionTime.addActionListener(e ->{
+                            Main.m.setVisible(false);
+                            d = new Decisions();
+                            String[] prompts = {"color", "name", "food"};
+                            String p = "pages/decisions/Decisions1.txt";
+                            Decisions.generateDecision(p, prompts, false);
+                        });
+                    }
                     s.close();
                 } catch (FileNotFoundException e){ System.out.println("File not found"); };
             }

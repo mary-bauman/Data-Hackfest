@@ -22,8 +22,20 @@ public class MadLibButton {
 
     public JButton generateMadLibsButton(JTextField tf, JLabel label){
         myButton.addActionListener(e -> {
-            if (counter <= prompts1.length) {
-                Main.m.generateMadLib(p1, prompts1, false);
+            
+            this.pressButton();
+           
+
+
+        });
+        
+        return myButton;
+        
+    }
+
+    public void pressButton() {
+        if (counter <= prompts1.length) {
+                Main.m.generateMadLib(p1, prompts1, true);
                 counter++;
             }
             else
@@ -34,14 +46,6 @@ public class MadLibButton {
             JLabel myLabel = new JLabel();
             JTextField myTextField = new JTextField(20);
             myTextField.setVisible(false);
-
-           
-
-
-        });
-        
-        return myButton;
-        
     }
     
 }
