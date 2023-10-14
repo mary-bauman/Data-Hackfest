@@ -11,9 +11,8 @@ public class MadLibButton {
     public JButton myButton = new JButton("Start");
 
     private String[] prompts1 = {"color", "name", "food"};
-    private String p1 = "pages/madlibs/MadLib1.txt";
-    private String[] prompts2 = {"noun", "adjective"};
-    private String p2 = "pages/madlibs/MadLibTest.txt";
+    public static String p1 = "pages/madlibs/MadLib1";
+    private String[] prompts1A = {"noun", "adjective"};
 
     private int counter = 0; // sorry I can't stop using counters
 
@@ -35,17 +34,18 @@ public class MadLibButton {
 
     public void pressButton() {
         if (counter <= prompts1.length) {
-                Main.m.generateMadLib(p1, prompts1, true);
+                String[] choices = {"Yes", "No"};
+                Main.m.generateMadLib(p1 + ".txt", prompts1, "Will you kick the duck?", choices);
                 counter++;
             }
-            else
-                Main.m.generateMadLib(p2, prompts2, false);
-            if (!myButton.getText().equals("Enter"))
-                myButton.setText("Enter");
-        
-            JLabel myLabel = new JLabel();
-            JTextField myTextField = new JTextField(20);
-            myTextField.setVisible(false);
+        else {
+            Main.m.generateMadLib(p1 + ".txt", prompts1A);
+        }
+        if (!myButton.getText().equals("Enter"))
+            myButton.setText("Enter");
+        JLabel myLabel = new JLabel();
+        JTextField myTextField = new JTextField(20);
+        myTextField.setVisible(false);
     }
     
 }

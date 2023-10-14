@@ -1,6 +1,10 @@
 package pages.decisions;
-import buttons.DecisionsButton;
+import src.Main;
+
 import javax.swing.*;
+
+import buttons.MadLibButton;
+
 import java.awt.*;
 import java.io.*;
 import java.util.*;
@@ -9,9 +13,10 @@ public class Decisions extends JFrame {
         // Declare Swing components
         private static JLabel myLabel;
         private static JTextField myTextField;
-    
-        private static int count = 0;
-        private static String[] answers;
+        private JPanel panel;
+        private static JButton choice1;
+        private static JButton choice2;
+        public static char choice;
 
     public Decisions(){
         // Set the title for the JFrame
@@ -21,8 +26,12 @@ public class Decisions extends JFrame {
         myLabel = new JLabel();
         myTextField = new JTextField(20);
         myTextField.setVisible(false);
-        DecisionsButton b = new DecisionsButton();
-        JButton buttonB = b.generateDecisionsButton(myTextField,myLabel);
+        choice = 'A';
+        panel = new JPanel();
+        choice1 = new JButton();
+        choice2 = new JButton();
+        panel.add(choice1);
+        panel.add(choice2);
 
         // Set the layout manager for the JFrame (e.g., BorderLayout)
         setLayout(new BorderLayout());
@@ -31,7 +40,7 @@ public class Decisions extends JFrame {
         //add(myButton, BorderLayout.NORTH);
         add(myLabel, BorderLayout.CENTER);
         add(myTextField, BorderLayout.SOUTH);
-        add(buttonB, BorderLayout.EAST);
+        add(panel, BorderLayout.EAST);
 
         // Set default close operation and window size
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -41,11 +50,29 @@ public class Decisions extends JFrame {
         setVisible(true);
     }
 
-    public static void generateDecision(String path, String[] words, boolean choice) {
+    public static void generateDecision(String question, String[] choices) {
         //decisions stuff
-        myLabel.setText("You have a decision to make...");
-        
-        
+        myLabel.setText(question);
+        choice1.setText(choices[0]);
+        choice2.setText(choices[1]);
+        choice1.addActionListener(e->{
+            choice = 'A';
+            Main.m.d.setVisible(false);
+            Main.m.decisionTime.setVisible(false);
+            Main.m.buttonA.setVisible(true);
+            Main.m.a.pressButton();
+            Main.m.setVisible(true);
+            MadLibButton.p1 += choice;
+            });
+        choice2.addActionListener(e->{
+            choice = 'B';
+            Main.m.d.setVisible(false);
+            Main.m.decisionTime.setVisible(false);
+            Main.m.buttonA.setVisible(true);
+            Main.m.a.pressButton();
+            Main.m.setVisible(true);
+            MadLibButton.p1 += choice;
+            });
     }
 
 }

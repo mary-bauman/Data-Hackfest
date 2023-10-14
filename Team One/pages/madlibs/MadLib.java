@@ -19,6 +19,7 @@ public class MadLib extends JFrame {
         private String finalLib;
         private static int count = 0;
         private static String[] answers;
+        private boolean decisionReady;
 
 
     public MadLib(){
@@ -31,6 +32,7 @@ public class MadLib extends JFrame {
         a = new MadLibButton();
         buttonA = a.generateMadLibsButton(myTextField,myLabel);
         finalLib = "";
+        decisionReady = false;
         // Set the layout manager for the JFrame (e.g., BorderLayout)
         setLayout(new BorderLayout());
 
@@ -48,7 +50,7 @@ public class MadLib extends JFrame {
         setVisible(true);
     }
 
-    public void generateMadLib(String path, String[] words, boolean choice) {
+    public void generateMadLib(String path, String[] words) {
         if (count == 0) {
             myLabel.setText("Enter a " + words[count] + ":");
             answers = new String[words.length];
@@ -75,21 +77,25 @@ public class MadLib extends JFrame {
                     myLabel.setText("<html>" + finalLib.replaceAll("\n", "<br/>") + "</html>");
                     myTextField.setVisible(false);
                     count = 0;
-                    if(choice) {
-                        buttonA.setVisible(false);
+                    decisionReady = true;
+                    s.close();
+                } catch (FileNotFoundException e){ System.out.println("File not found"); };
+            }
+        }
+    }
+    public void generateMadLib(String path, String[] words, String question, String[] choices) {
+        generateMadLib(path, words);
+        if (decisionReady) {
+            buttonA.setVisible(false);
                         decisionTime.setVisible(true);
                         Main.m.add(decisionTime, BorderLayout.SOUTH);
                         decisionTime.addActionListener(e ->{
                             Main.m.setVisible(false);
                             d = new Decisions();
-                            String[] prompts = {"color", "name", "food"};
-                            String p = "pages/decisions/Decisions1.txt";
-                            Decisions.generateDecision(p, prompts, false);
+                            Decisions.generateDecision(question, choices);
+                            decisionReady = false;
                         });
-                    }
-                    s.close();
-                } catch (FileNotFoundException e){ System.out.println("File not found"); };
-            }
+
         }
     }
 }
