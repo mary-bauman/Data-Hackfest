@@ -41,12 +41,11 @@ public class Decisions extends JFrame {
         setVisible(true);
     }
 
-    public static void generateDecisions(String path, String[] words, boolean choice) {
+    public static void generateDecision(String path, String[] words, boolean choice) {
         //decisions stuff
         myLabel.setText("You have a decision to make...");
         
-        DecisionsButton b = new DecisionsButton();
-        b.generateDecisionsButton(myTextField, myLabel);
+        
     }
 
 }

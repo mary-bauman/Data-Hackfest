@@ -25,8 +25,8 @@ public class MadLib extends JFrame {
         myTextField = new JTextField(20);
         myTextField.setVisible(false);
         MadLibButton a = new MadLibButton();
-        //ButtonB b = new ButtonB();
         JButton buttonA = a.generateMadLibsButton(myTextField,myLabel);
+
         // Set the layout manager for the JFrame (e.g., BorderLayout)
         setLayout(new BorderLayout());
 
@@ -76,7 +76,7 @@ public class MadLib extends JFrame {
                             Decisions d = new Decisions();
                             String[] prompts = {"color", "name", "food"};
                             String p = "pages/decisions/Decisions1.txt";
-                            Decisions.generateDecisions(p, prompts, false);
+                            Decisions.generateDecision(p, prompts, false);
                     });
 
 
