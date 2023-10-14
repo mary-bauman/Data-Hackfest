@@ -6,6 +6,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.io.*;
 import java.util.*;
+import src.Main;
 
 public class MadLib extends JFrame {
         // Declare Swing components
@@ -18,8 +19,10 @@ public class MadLib extends JFrame {
     public MadLib(){
         // Set the title for the JFrame
         super("Main");
+    }
 
-        // Initialize Swing components
+    public void init() {
+                // Initialize Swing components
         myLabel = new JLabel();
         myTextField = new JTextField(20);
         myTextField.setVisible(false);
@@ -43,7 +46,7 @@ public class MadLib extends JFrame {
         setVisible(true);
     }
 
-    public static void generateMadLib(String path, String[] words, boolean choice) {
+    public void generateMadLib(String path, String[] words, boolean choice) {
         if (count == 0) {
             myLabel.setText("Enter a " + words[count] + ":");
             answers = new String[words.length];
@@ -57,7 +60,9 @@ public class MadLib extends JFrame {
             else {
                 File f = new File(path);
                 try {
+                    Main.m.setVisible(false);
                     MadLib madLibInstance = new MadLib(); // Create an instance of MadLib
+                    madLibInstance.init();
                     Scanner s = new Scanner(f);
                     String finalLib = "";
                     for (int i = 0; i < answers.length; i++)
@@ -72,6 +77,7 @@ public class MadLib extends JFrame {
                     madLibInstance.add(decisionTime, BorderLayout.SOUTH);
                     
                     decisionTime.addActionListener(e ->{
+                            madLibInstance.setVisible(false);
                             Decisions d = new Decisions();
                             String[] prompts = {"color", "name", "food"};
                             String p = "pages/decisions/Decisions1.txt";

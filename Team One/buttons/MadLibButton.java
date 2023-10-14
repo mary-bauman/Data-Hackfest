@@ -18,7 +18,8 @@ public class MadLibButton {
         myButton.addActionListener(e -> {
             String[] prompts = {"color", "name", "food"};
             String p = "pages/madlibs/MadLib1.txt";
-            MadLib.generateMadLib(p, prompts, false);
+            MadLib m = new MadLib();
+            m.generateMadLib(p, prompts, false);
             if (!myButton.getText().equals("Enter"))
                 myButton.setText("Enter");
 
