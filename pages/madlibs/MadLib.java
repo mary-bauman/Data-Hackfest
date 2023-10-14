@@ -4,6 +4,7 @@ import pages.decisions.Decisions;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionListener;
 import java.io.*;
 import java.util.*;
 import src.Main;
@@ -33,8 +34,6 @@ public class MadLib extends JFrame {
         buttonA = a.generateMadLibsButton(myTextField,myLabel);
         finalLib = "";
         decisionReady = false;
-        d = new Decisions();
-        d.setVisible(false);
         // Set the layout manager for the JFrame (e.g., BorderLayout)
         setLayout(new BorderLayout());
 
@@ -91,6 +90,9 @@ public class MadLib extends JFrame {
             buttonA.setVisible(false);
             decisionTime.setVisible(true);
             Main.m.add(decisionTime, BorderLayout.SOUTH);
+            for (ActionListener listener : decisionTime.getActionListeners()) {
+                decisionTime.removeActionListener(listener);
+            }
             decisionTime.addActionListener(e ->{
                 Main.m.setVisible(false);
                 d = new Decisions();
