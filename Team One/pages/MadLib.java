@@ -24,7 +24,6 @@ public class MadLib extends JFrame {
         ButtonA a = new ButtonA();
         //ButtonB b = new ButtonB();
         JButton buttonA = a.generateButtonA(myTextField,myLabel);
-
         // Set the layout manager for the JFrame (e.g., BorderLayout)
         setLayout(new BorderLayout());
 
@@ -55,16 +54,31 @@ public class MadLib extends JFrame {
                 myLabel.setText("Enter a " + words[count] + ":");
             else {
                 File f = new File(path);
-            try {
-                Scanner s = new Scanner(f);
-                String finalLib = "";
-                for (int i = 0; i < answers.length; i++)
-                    finalLib += (s.nextLine() + answers[i]);
-                finalLib += s.nextLine();
-                myLabel.setText(finalLib);
-                myTextField.setVisible(false);
-                s.close();
-            } catch (FileNotFoundException e){ System.out.println("File not found"); };
+                try {
+                    MadLib madLibInstance = new MadLib(); // Create an instance of MadLib
+                    Scanner s = new Scanner(f);
+                    String finalLib = "";
+                    for (int i = 0; i < answers.length; i++)
+                        finalLib += (s.nextLine() + answers[i]);
+                    finalLib += s.nextLine();
+                    myLabel.setText(finalLib);
+                    myTextField.setVisible(false);
+                    
+
+                    
+                    JButton decisionTime = new JButton("Continue", null);
+                    madLibInstance.add(decisionTime, BorderLayout.SOUTH);
+                    
+                    decisionTime.addActionListener(e ->{
+                            Decisions d = new Decisions();
+                            String[] prompts = {"color", "name", "food"};
+                            String p = "pages/Decisions1.txt";
+                            Decisions.generateDecisions(p, prompts, false);
+                    });
+
+
+                    s.close();
+                } catch (FileNotFoundException e){ System.out.println("File not found"); };
             }
         }
         count++;

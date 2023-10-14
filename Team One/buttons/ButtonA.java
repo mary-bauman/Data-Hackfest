@@ -3,6 +3,7 @@ package buttons;
 import javax.swing.*;
 
 import pages.MadLib;
+import pages.Decisions;
 
 
 public class ButtonA {
@@ -20,6 +21,14 @@ public class ButtonA {
             MadLib.generateMadLib(p, prompts, false);
             if (!myButton.getText().equals("Decisions"))
                 myButton.setText("Decisions");
+
+            JLabel myLabel = new JLabel();
+            JTextField myTextField = new JTextField(20);
+            myTextField.setVisible(false);
+
+           
+
+
         });
         
         return myButton;

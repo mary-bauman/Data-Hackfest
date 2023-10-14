@@ -12,5 +12,4 @@ public class Main extends JFrame {
         SwingUtilities.invokeLater(() -> new MadLib());
     }
 
-
 }
