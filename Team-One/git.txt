@@ -1,5 +1,0 @@
-git pull
-git status
-git add * OR git add file.java
-git commit -m "put ur message here"
-git push
