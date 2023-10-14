@@ -41,11 +41,7 @@ public class MadLibButton {
         else {
             Main.m.generateMadLib(p1 + ".txt", prompts1A, "Will this work?", choices);
         }
-        if (!myButton.getText().equals("Enter"))
-            myButton.setText("Enter");
-        JLabel myLabel = new JLabel();
-        JTextField myTextField = new JTextField(20);
-        myTextField.setVisible(false);
+        myButton.setText("Enter");
     }
     
 }

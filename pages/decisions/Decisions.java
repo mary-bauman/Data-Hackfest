@@ -6,6 +6,7 @@ import javax.swing.*;
 import buttons.MadLibButton;
 
 import java.awt.*;
+import java.awt.event.ActionListener;
 import java.io.*;
 import java.util.*;
 
@@ -57,6 +58,12 @@ public class Decisions extends JFrame {
         myLabel.setText(question);
         choice1.setText(choices[0]);
         choice2.setText(choices[1]);
+        for (ActionListener listener : choice1.getActionListeners()) {
+            choice1.removeActionListener(listener);
+        }
+        for (ActionListener listener : choice2.getActionListeners()) {
+            choice2.removeActionListener(listener);
+        }
         choice1.addActionListener(e->{
             choice = 'A';
             Main.m.d.setVisible(false);
@@ -69,7 +76,7 @@ public class Decisions extends JFrame {
         choice2.addActionListener(e->{
             choice = 'B';
             Main.m.d.setVisible(false);
-            Main.m.decisionTime = null;
+            Main.m.decisionTime.setVisible(false);
             Main.m.buttonA.setVisible(true);
             Main.m.a.pressButton();
             Main.m.setVisible(true);
