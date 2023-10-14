@@ -30,7 +30,9 @@ public class Decisions extends JFrame {
         box = Box.createVerticalBox();
         choice1 = new JButton();
         choice2 = new JButton();
+        
         box.add(choice1);
+        box.add(Box.createVerticalStrut(10));
         box.add(choice2);
 
         // Set the layout manager for the JFrame (e.g., BorderLayout)
