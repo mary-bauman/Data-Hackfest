@@ -19,10 +19,7 @@ public class MadLib extends JFrame {
     public MadLib(){
         // Set the title for the JFrame
         super("Main");
-    }
-
-    public void init() {
-                // Initialize Swing components
+                        // Initialize Swing components
         myLabel = new JLabel();
         myTextField = new JTextField(20);
         myTextField.setVisible(false);

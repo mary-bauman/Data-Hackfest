@@ -7,10 +7,10 @@ import pages.madlibs.MadLib;
 import java.awt.*;
 
 public class Main extends JFrame {
-    public static MadLib m = new MadLib();
+    public static MadLib m;
     public static void main(String[] args) {
         // Create an instance of Main
-        m.init();
+        m = new MadLib();
     }
 
 }
