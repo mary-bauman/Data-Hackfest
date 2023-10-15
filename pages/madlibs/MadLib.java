@@ -56,6 +56,7 @@ public class MadLib extends JFrame {
 
     public void generateMadLib(String path, String[] words) {
         
+        
         if (count == 0) {
             myLabel.setText("Enter a " + words[count] + ":");
             myTextField.setVisible(true);

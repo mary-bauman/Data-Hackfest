@@ -15,6 +15,7 @@ public class MadLibButton {
     public static String p1 = "pages/madlibs/MadLib1";
     private String[] prompts1A = {"emotion", "action"};
     private String[] prompts1B = {"business name"};
+    private String[] prompts1BA = {"name"};
     private String[] prompts1AA = {"adjective", "color"};
     private String[] prompts1AB = {"clothes", "thing"};
     private String[] prompts1BB = {"business name", "price"};
@@ -56,6 +57,8 @@ public class MadLibButton {
                 Main.m.generateMadLib(p1 + ".txt", prompts1AA, "Do you try to take their food from the picnic blanket and run for it?", choices);
             else if (p1.equals("pages/madlibs/MadLib1AB"))
                 Main.m.generateMadLib(p1 + ".txt", prompts1AB);
+            else if (p1.equals("pages/madlibs/MadLib1BA"))
+                Main.m.generateMadLib(p1 + ".txt", prompts1BA);
             else if (p1.equals("pages/madlibs/MadLib1BB"))
                 Main.m.generateMadLib(p1 + ".txt", prompts1BB);
             
