@@ -6,22 +6,34 @@ import pages.madlibs.MadLib;
 
 import java.awt.*;
 
-public class Vars extends JFrame {
-    public String color = "yellow";
+import java.util.*;
 
+public class Vars extends JFrame {
+    //len of vars is hardcoded bc its always the same, even if some are unused
+    //these are in order of when they were declared
+    public String[] variableArray = new String[500];
     
     private static Vars single_instance = null; 
 
+
     private Vars(){
-        color = "pink";
+        variableArray[0] = "pink";
     }
 
     //makes vars singleton so we only have one instance we're interacting with
-    public static Vars getVars(){
+    public static Vars getVarsInstance(){
         if(single_instance==null){
             single_instance = new Vars();
         }
         return single_instance; 
+    }
+
+    public String getVar(int i){
+        return variableArray[i];
+    }
+
+    public void setVar(int i, String s){
+        variableArray[i] = s;
     }
 
 }
