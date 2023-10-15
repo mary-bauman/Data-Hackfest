@@ -14,7 +14,7 @@ public class Vars extends JFrame {
     public String[] variableArray = new String[500];
     
     private static Vars single_instance = null; 
-
+    public int c = 0;
 
     private Vars(){
         variableArray[0] = "pink";
@@ -34,6 +34,14 @@ public class Vars extends JFrame {
 
     public void setVar(int i, String s){
         variableArray[i] = s;
+    }
+
+    public int getCount(){
+        return c;
+    }
+
+    public void setCount(int i){
+        c = i;
     }
 
 }

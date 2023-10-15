@@ -10,6 +10,8 @@ import java.awt.event.ActionListener;
 import java.io.*;
 import java.util.*;
 
+import src.Vars;
+
 public class Decisions extends JFrame {
         // Declare Swing components
         public static JLabel myLabel;
@@ -19,9 +21,12 @@ public class Decisions extends JFrame {
         public static JButton choice2;
         public static char choice;
 
+        Vars v = Vars.getVarsInstance();
+
+
     public Decisions(){
         // Set the title for the JFrame
-        super("Main");
+        super("Decision Time");
 
         // Initialize Swing components
         myLabel = new JLabel();
@@ -69,7 +74,8 @@ public class Decisions extends JFrame {
             Main.m.d.setVisible(false);
             Main.m.decisionTime.setVisible(false);
             Main.m.buttonA.setVisible(true);
-            Main.m.a.pressButton();
+            Main.m.a.pressButton(v.getCount());
+            v.setCount(v.getCount()+1);
             Main.m.setVisible(true);
             MadLibButton.p1 += choice;
             });
@@ -78,7 +84,7 @@ public class Decisions extends JFrame {
             Main.m.d.setVisible(false);
             Main.m.decisionTime.setVisible(false);
             Main.m.buttonA.setVisible(true);
-            Main.m.a.pressButton();
+            Main.m.a.pressButton(v.getCount());
             Main.m.setVisible(true);
             MadLibButton.p1 += choice;
             });
