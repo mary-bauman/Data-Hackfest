@@ -13,7 +13,6 @@ public class MadLibButton {
 
     private String[] prompts1 = {"color", "name", "food"};
     public static String p1 = "pages/madlibs/MadLib1";
-    public static String[] filePaths = {"MadLib1"};
     private String[] prompts1A = {"noun", "adjective"};
     private String[] choices = {"Yes", "No"};
 
@@ -39,9 +38,6 @@ public class MadLibButton {
     }
 
     public void pressButton(int count) {
-        String path = "pages/madlibs/";
-        //path += filePaths[count];
-        path += filePaths[0];
         //change p1 to path here mary
         if (counter <= prompts1.length) {
                 Main.m.generateMadLib(p1 + ".txt", prompts1, "Will you kick the duck?", choices);

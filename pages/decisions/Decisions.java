@@ -12,6 +12,8 @@ import java.util.*;
 
 import src.Vars;
 
+
+
 public class Decisions extends JFrame {
         // Declare Swing components
         public static JLabel myLabel;
@@ -22,6 +24,9 @@ public class Decisions extends JFrame {
         public static char choice;
 
         Vars v = Vars.getVarsInstance();
+
+        
+
 
 
     public Decisions(){
@@ -59,6 +64,10 @@ public class Decisions extends JFrame {
     }
 
     public void generateDecision(String question, String[] choices) {
+        String madPath = "pages/madlibs/";
+        //madPath += v.filePaths[count];
+
+
         //decisions stuff
         myLabel.setText(question);
         choice1.setText(choices[0]);

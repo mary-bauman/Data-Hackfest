@@ -11,6 +11,7 @@ import src.Main;
 import src.Vars;
 
 public class MadLib extends JFrame {
+        
         // Declare Swing components
         private static JLabel myLabel;
         private static JTextField myTextField;
@@ -25,8 +26,9 @@ public class MadLib extends JFrame {
 
 
     public MadLib(){
+        
         // Set the title for the JFrame
-        super("Main");
+        super("Madlib");
                         // Initialize Swing components
         myLabel = new JLabel();
         myTextField = new JTextField(20);

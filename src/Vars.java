@@ -16,6 +16,8 @@ public class Vars extends JFrame {
     private static Vars single_instance = null; 
     public int c = 0;
 
+    public static String[] filePaths = {"MadLib1"};
+
     private Vars(){
         variableArray[0] = "pink";
     }
