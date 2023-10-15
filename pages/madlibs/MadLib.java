@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 import java.io.*;
 import java.util.*;
 import src.Main;
+import src.Vars;
 
 public class MadLib extends JFrame {
         // Declare Swing components
@@ -19,8 +20,8 @@ public class MadLib extends JFrame {
         public MadLibButton a;
         private String finalLib;
         private static int count = 0;
-        private static String[] answers;
         private boolean decisionReady;
+        Vars v = Vars.getVarsInstance();
 
 
     public MadLib(){
@@ -52,14 +53,18 @@ public class MadLib extends JFrame {
     }
 
     public void generateMadLib(String path, String[] words) {
+        
         if (count == 0) {
             myLabel.setText("Enter a " + words[count] + ":");
-            answers = new String[words.length];
             myTextField.setVisible(true);
             count++;
         }
         else if (count <= words.length) {
-            answers[count-1] = myTextField.getText();
+
+            
+            v.setVar((count-1),myTextField.getText());
+
+
             myTextField.setText("");
             if (count < words.length) {
                 myLabel.setText("Enter a " + words[count] + ":");
@@ -72,8 +77,8 @@ public class MadLib extends JFrame {
                     //String finalLib = ""; // uncomment for 1 mad lib at a time
                     if (!finalLib.equals(""))
                         finalLib += "\n\n";
-                    for (int i = 0; i < answers.length; i++)
-                        finalLib += (s.nextLine() + answers[i]);
+                    for (int i = 0; i < words.length; i++)
+                        finalLib += (s.nextLine() + v.getVar(i));
                     finalLib += s.nextLine();
                     myLabel.setText("<html>" + finalLib.replaceAll("\n", "<br/>") + "</html>");
                     myTextField.setVisible(false);
